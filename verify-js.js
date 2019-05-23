@@ -16,27 +16,27 @@ export default class Verify {
     }
 
     isRequired(message) {
-        if (!this.pass) return this
+        if (!this.pass) return this;
 
         if (
             /^\s*$/g.test(this.input) ||
             this.input === null ||
             this.input === undefined
         ) {
-            this.errorMessage = message
-            this.pass = false
+            this.errorMessage = message;
+            this.pass = false;
         }
-        return this
+        return this;
     }
 
     minLength(length, message) {
-        if (!this.pass) return this
+        if (!this.pass) return this;
 
         if (this.input.length < length) {
-            this.errorMessage = message
-            this.pass = false
+            this.errorMessage = message;
+            this.pass = false;
         }
-        return this
+        return this;
     }
 
     maxLength(length, message) {
@@ -75,7 +75,7 @@ export default class Verify {
     }
 
     isEmail(message) {
-        if (!this.pass) return this
+        if (!this.pass) return this;
         const emailReg = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;
         if (!emailReg.test(this.input)) {
             this.errorMessage = message;
@@ -85,7 +85,7 @@ export default class Verify {
     }
 
     isURL(message) {
-        if (!this.pass) return this
+        if (!this.pass) return this;
 
         const urlReg = new RegExp(
             '^(?!mailto:)(?:(?:http|https|ftp)://|//)(?:\\S+(?::\\S*)?@)?(?:(?:(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}(?:\\.(?:[0-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))|(?:(?:[a-z\\u00a1-\\uffff0-9]+-?)*[a-z\\u00a1-\\uffff0-9]+)(?:\\.(?:[a-z\\u00a1-\\uffff0-9]+-?)*[a-z\\u00a1-\\uffff0-9]+)*(?:\\.(?:[a-z\\u00a1-\\uffff]{2,})))|localhost)(?::\\d{2,5})?(?:(/|\\?|#)[^\\s]*)?$',
@@ -113,7 +113,7 @@ export default class Verify {
         if(!this.pass) return this;
         if(typeof this.input !== 'string') {
             this.errorMessage = message;
-            this.pass;    
+            this.pass = false;    
         }
         return this;
     }
