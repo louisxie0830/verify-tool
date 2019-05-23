@@ -5,7 +5,7 @@
 import Verify from 'Verify'
 const valid = new Verify();
 
-validCoi.data('1234').isRequired('Please specify required fields')
+valid.data('1234').isRequired('Please specify required fields')
 if(!valid.pass) {
     console.log(valid.errorMessage);
 }
